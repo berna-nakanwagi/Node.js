@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Register Wood</title>
+  <link rel="stylesheet" href="../../Public/css/style_wood.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="landing.html">Landing</a>
+    <a href="register_wood.html">Register Wood</a>
+    <a href="user.html">User</a>
+  </nav>
+  <div class="container">
+    <h1>Register Your Wood</h1>
+    <form onsubmit="return validateWoodForm()">
+      <div id="error" class="error"></div>
+      <label for="type">Wood Type:</label>
+      <input type="text" id="type" name="type" placeholder="e.g., Oak, Mahogany">
+
+      <label for="quantity">Quantity (kg):</label>
+      <input type="number" id="quantity" name="quantity" min="1" placeholder="e.g., 50">
+
+      <input type="submit" value="Register">
+    </form>
+  </div>
+
+  <script>
+    function validateWoodForm() {
+      const type = document.getElementById('type').value.trim();
+      const quantity = document.getElementById('quantity').value.trim();
+      const error = document.getElementById('error');
+      error.innerHTML = '';
+
+      if (!type || quantity <= 0) {
+        error.innerHTML = "Please enter a valid wood type and quantity.";
+        return false;
+      }
+      return true;
+    }
+  </script>
+</body>
+</html>

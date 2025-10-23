@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>User Profile</title>
+  <link rel="stylesheet" href="../../Public/css/style_user.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="landing.html">Landing</a>
+    <a href="register_wood.html">Register Wood</a>
+    <a href="user.html">User</a>
+  </nav>
+  <div class="container">
+    <h1>User Registration</h1>
+    <form onsubmit="return validateUserForm()">
+      <div id="user-error" class="error"></div>
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username" placeholder="Enter your username">
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" placeholder="Enter your email">
+
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" placeholder="Minimum 6 characters">
+
+      <input type="submit" value="Register">
+    </form>
+  </div>
+
+  <script>
+    function validateUserForm() {
+      const username = document.getElementById('username').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const password = document.getElementById('password').value.trim();
+      const error = document.getElementById('user-error');
+      error.innerHTML = '';
+
+      const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+
+      if (!username || !emailPattern.test(email) || password.length < 6) {
+        error.innerHTML = "Please provide a valid username, email, and password.";
+        return false;
+      }
+      return true;
+    }
+  </script>
+</body>
+</html>

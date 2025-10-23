@@ -1,0 +1,44 @@
+body {
+  background-color: #f3ede4;
+  font-family: Verdana, sans-serif;
+  color: #3e2723;
+    background-image: url('/images/collections.jfif'); 
+  background-size: cover;       
+  background-repeat: no-repeat;  
+  background-position: center;   
+  background-attachment: fixed;  
+}
+
+nav {
+  background-color:#795548 ;
+  padding: 15px;
+}
+
+nav a {
+  color: #ffecb3;
+  margin-right: 15px;
+  text-decoration: none;
+}
+
+nav a:hover {
+  color: #bcaaa4;
+}
+
+.container {
+  margin: 40px auto;
+  padding: 30px;
+  width: 50%;
+  background-color: #ffffff;
+  border-radius: 12px;
+}
+
+input, label {
+  display: block;
+  width: 100%;
+  margin-top: 10px;
+}
+
+input {
+  padding: 10
+
+}

@@ -1,0 +1,29 @@
+body {
+  background-color: #ede0d4;
+  font-family: 'Georgia', serif;
+  color: #3e2723;
+}
+
+nav {
+  background-color: #6d4c41;
+  padding: 15px;
+}
+
+nav a {
+  color: #ffccbc;
+  margin-right: 15px;
+  text-decoration: none;
+}
+
+nav a:hover {
+  color: #a1887f;
+}
+
+.container {
+  margin: 50px auto;
+  padding: 30px;
+  width: 70%;
+  background-color: #f5f5dc;
+  border: 2px solid #6d4c41;
+  border-radius: 12px;
+}

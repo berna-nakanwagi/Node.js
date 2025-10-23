@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Register Furniture</title>
+  <link rel="stylesheet" href="../../Public/css/style_furniture.css" />
+</head>
+<body>
+  <div class="container">
+    <h2>Register Furniture</h2>
+    <form id="furnitureForm" novalidate>
+      <div class="form-group">
+        <label for="name">Furniture Name</label>
+        <input type="text" id="name" name="name" placeholder="e.g. Wooden Table" required />
+        <small class="error"></small>
+      </div>
+
+      <div class="form-group">
+        <label for="type">Category</label>
+        <select id="type" name="type" required>
+          <option value="">Select category</option>
+          <option value="chair">Chair</option>
+          <option value="table">Table</option>
+          <option value="bed">Bed</option>
+          <option value="sofa">Sofa</option>
+        </select>
+        <small class="error"></small>
+      </div>
+
+      <div class="form-group">
+        <label for="price">Price (UGX)</label>
+        <input type="number" id="price" name="price" placeholder="e.g. 250000" min="1" required />
+        <small class="error"></small>
+      </div>
+
+      <div class="form-group">
+        <label for="description">Description</label>
+        <textarea id="description" name="description" rows="3" placeholder="Short description..." required></textarea>
+        <small class="error"></small>
+      </div>
+
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+
+  <script src="../../Public/js/formValidation.js"></script>
+</body>
+</html>

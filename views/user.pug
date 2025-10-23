@@ -1,0 +1,42 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  title User Profile
+  link(rel='stylesheet' href='../css/style_user.css')
+nav
+  a(href='index.html') Home
+  a(href='landing.html') Landing
+  a(href='register_wood.html') Register Wood
+  a(href='user.html') User
+  .container
+  h1 User Registration
+  //- img(src="images/collections.jfif", alt="wood")
+  form( action="/register" method="post" )
+    #user-error.error
+    label(for='username') Username:
+    input#username(type='text' name='username' placeholder='Enter your username')
+    label(for='email') Email:
+    input#email(type='email' name='email' placeholder='Enter your email')
+    label(for='role') Role:
+    select#role(name="role") 
+      option(value="") Select role 
+      option(value="manager") Manager
+      option(value="sales agent") Sales agent
+    label(for='password') Password:
+    input#password(type='password' name='password' placeholder='Minimum 6 characters')
+    input(type='submit' value='Register')
+    
+//- script.
+//-   function validateUserForm() {
+//-   const username = document.getElementById('username').value.trim();
+//-   const email = document.getElementById('email').value.trim();
+//-   const password = document.getElementById('password').value.trim();
+//-   const error = document.getElementById('user-error');
+//-   error.innerHTML = '';
+//-   const emailPattern = /^[^ ]+@[^ ]+\\.[a-z]{2,3}$/;
+//-   if (!username || !emailPattern.test(email) || password.length < 6) {
+//-   error.innerHTML = "Please provide a valid username, email, and password.";
+//-   return false;
+//-   }
+//-   return true;
+//-   }

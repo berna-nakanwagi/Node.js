@@ -1,0 +1,32 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Register Furniture
+  link(rel='stylesheet' href='/css/style_furniture.css')
+.container
+  h2 Register Furniture
+  form#furnitureForm(action="/registerFurniture" method="post" novalidate='')
+    .form-group
+      label(for='name') Furniture Name
+      input#name(type='text' name='name' placeholder='e.g. Wooden Table' required='')
+      small.error
+    .form-group
+      label(for='type') Category
+      select#type(name='type' required='')
+        option(value='') Select category
+        option(value='chair') Chair
+        option(value='table') Table
+        option(value='bed') Bed
+        option(value='sofa') Sofa
+      small.error
+    .form-group
+      label(for='price') Price (UGX)
+      input#price(type='number' name='price' placeholder='e.g. 250000' min='1' required='')
+      small.error
+    .form-group
+      label(for='description') Description
+      textarea#description(name='description' rows='3' placeholder='Short description...' required='')
+      small.error
+    button(type='submit') Submit
+  script(src='js/formValidation.js')
