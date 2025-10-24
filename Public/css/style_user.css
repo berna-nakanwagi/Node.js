@@ -1,44 +1,70 @@
+/* General body styling */
 body {
-  background-color: #f3ede4;
-  font-family: Verdana, sans-serif;
-  color: #3e2723;
-    background-image: url('/images/collections.jfif'); 
-  background-size: cover;       
-  background-repeat: no-repeat;  
-  background-position: center;   
-  background-attachment: fixed;  
-}
-
-nav {
-  background-color:#795548 ;
-  padding: 15px;
-}
-
-nav a {
-  color: #ffecb3;
-  margin-right: 15px;
-  text-decoration: none;
-}
-
-nav a:hover {
-  color: #bcaaa4;
-}
-
-.container {
-  margin: 40px auto;
-  padding: 30px;
-  width: 50%;
   background-color: #ffffff;
-  border-radius: 12px;
+  color: #000000;
+  font-family: Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  min-height: 100vh;
 }
 
-input, label {
+
+/* Container */
+.container {
+  background-color: #ffffff;
+  width: 400px;
+  text-align: center;
+
+}
+
+/* Form elements */
+input,
+label,
+select,
+textarea {
   display: block;
   width: 100%;
-  margin-top: 10px;
+  margin-top: 15px;
+  color: #000000;
+  font-size: 14px;
 }
 
-input {
-  padding: 10
+input,
+select,
+textarea {
+  padding: 12px;
+  background-color: #f8f8f8;
+  border: 1px solid #000000;
+  border-radius: 6px;
+  color: #000000;
+  box-sizing: border-box;
+}
 
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: #555555;
+}
+
+/* Button styling */
+button {
+  padding: 12px 20px;
+  margin-top: 20px;
+  border: none;
+  border-radius: 6px;
+  background-color: #000000;
+  /* Black button */
+  color: #ffffff;
+  /* White text */
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+button:hover {
+  background-color: #555555;
 }

@@ -1,51 +1,102 @@
+/* ======== Base Styles ======== */
+* {
+  margin: 10px;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
 body {
-  background-color: #fcebd7;
-  font-family: Tahoma, sans-serif;
-  color: #4e342e;
+  font-family: "Poppins", sans-serif;
+  background-color: whitesmoke;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
 }
 
-nav {
-  background-color: #8d6e63;
-  padding: 15px;
-}
-
-nav a {
-  color: #fbe9e7;
-  margin-right: 15px;
-  text-decoration: none;
-}
-
-nav a:hover {
-  color: #d7ccc8;
-}
 
 .container {
-  margin: 50px auto;
-  padding: 25px;
-  width: 60%;
-  background-color: #fff3e0;
-  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.85); /* semi-transparent white */
+  padding: 2.5rem;
+  border-radius: 1.2rem;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  width: 90%;
+  max-width: 450px;
+  backdrop-filter: saturate(180%) blur(5px);
+  animation: fadeIn 0.8s ease-in-out;
 }
 
-input, label {
+
+
+
+/* ======== Headings ======== */
+h2 {
+  text-align: center;
+  color: #1a0d05;
+  margin-bottom: 1.8rem;
+  letter-spacing: 0.5px;
+}
+
+/* ======== Form Elements ======== */
+.form-group {
+  margin-bottom: 1.2rem;
+}
+
+label {
   display: block;
-  margin-top: 10px;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+  color: #181207;
+}
+
+input,
+select,
+textarea {
   width: 100%;
+  padding: 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 0.6rem;
+  outline: none;
+  font-size: 0.95rem;
+  background: #fffffff2;
+  transition: all 0.25s ease;
 }
 
-input {
-  padding: 10px;
-  margin-bottom: 20px;
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: #242017;
+  box-shadow: 0 0 8px rgba(212, 158, 82, 0.4);
+  background: #ffffff;
 }
 
-input[type="submit"] {
-  background-color: #6d4c41;
-  color: white;
+/* ======== Button Styling ======== */
+button {
+  width: 100%;
+  padding: 0.9rem;
+  background: linear-gradient(135deg, #dba55e, #e9af58);
+  color: #ffffff;
   border: none;
+  border-radius: 0.6rem;
+  font-size: 1.05rem;
+  font-weight: 600;
   cursor: pointer;
+  transition: all 0.3s ease;
 }
 
-.error {
-  color: red;
-  margin-bottom: 10px;
+button:hover {
+  background: linear-gradient(135deg, #c57b1a, #cca113);
+  transform: translateY(-2px);
 }
+
+/* ======== Error Message ======== */
+.error {
+  color: #e53935;
+  font-size: 0.85rem;
+  height: 1em;
+  margin-top: 0.2rem;
+}
+
+

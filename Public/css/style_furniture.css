@@ -1,19 +1,24 @@
+/* ======== Base Styles ======== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ======== Body ======== */
 body {
   font-family: "Poppins", sans-serif;
-  background: url("../images/") center center no-repeat fixed;
-  background-size: contain; 
-  background-color: #e3f2fd; 
+ 
   min-height: 100vh;
-  margin: 0;
   display: flex;
   align-items: center;
   justify-content: center;
+  margin: 0;
 }
 
-
-/* FORM CONTAINER */
+/*  Form Container */
 .container {
-  background: rgba(255, 255, 255, 0.85); /* semi-transparent white for readability */
+  background: rgba(255, 255, 255, 0.85); /* semi-transparent white */
   padding: 2.5rem;
   border-radius: 1.2rem;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
@@ -23,27 +28,17 @@ body {
   animation: fadeIn 0.8s ease-in-out;
 }
 
-/* ANIMATION */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(15px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
 
-/* HEADINGS */
+
+/* Headings */
 h2 {
   text-align: center;
-  color: #0d47a1;
+  color: #1a0d05;
   margin-bottom: 1.8rem;
   letter-spacing: 0.5px;
 }
 
-/* FORM ELEMENTS */
+/* Form Elements */
 .form-group {
   margin-bottom: 1.2rem;
 }
@@ -52,10 +47,12 @@ label {
   display: block;
   font-weight: 600;
   margin-bottom: 0.4rem;
-  color: #1a237e;
+  color: #181207;
 }
 
-input, select, textarea {
+input,
+select,
+textarea {
   width: 100%;
   padding: 0.8rem;
   border: 1px solid #ccc;
@@ -66,17 +63,19 @@ input, select, textarea {
   transition: all 0.25s ease;
 }
 
-input:focus, select:focus, textarea:focus {
-  border-color: #1565c0;
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: #242017;
   box-shadow: 0 0 8px rgba(21, 101, 192, 0.3);
   background: white;
 }
 
-/* BUTTON STYLING */
+/* ======== Button Styling ======== */
 button {
   width: 100%;
   padding: 0.9rem;
-  background: linear-gradient(135deg, #1976d2, #64b5f6);
+  background: linear-gradient(135deg, #dba55e, #e9af58);
   color: white;
   border: none;
   border-radius: 0.6rem;
@@ -87,11 +86,11 @@ button {
 }
 
 button:hover {
-  background: linear-gradient(135deg, #1565c0, #42a5f5);
+  background: linear-gradient(135deg, #c57b1a, #cca113);
   transform: translateY(-2px);
 }
 
-/* ERROR MESSAGE */
+/*  Error Message  */
 .error {
   color: #e53935;
   font-size: 0.85rem;
@@ -99,13 +98,4 @@ button:hover {
   margin-top: 0.2rem;
 }
 
-/* MOBILE OPTIMIZATION */
-@media (max-width: 500px) {
-  .container {
-    padding: 1.5rem;
-  }
 
-  h2 {
-    font-size: 1.3rem;
-  }
-}

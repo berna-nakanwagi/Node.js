@@ -3,11 +3,11 @@ head
   meta(charset='UTF-8')
   title Register Wood
   link(rel='stylesheet' href='css/style_wood.css')
-nav
-  a(href='index.html') Home
-  a(href='landing.html') Landing
-  a(href='/registerWood') Register Wood
-  a(href='/register') User
+//- nav
+//-   a(href='index.html') Home
+//-   a(href='landing.html') Landing
+//-   a(href='/registerWood') Register Wood
+//-   a(href='/register') User
 .container
   h1 Register Your Wood
   form( action="/registerWood" method="post" onsubmit='return validateUserForm()')
@@ -17,6 +17,7 @@ nav
     label(for='quantity') Quantity (kg):
     input#quantity(type='number' name='quantity' min='1' placeholder='e.g., 50')
     input(type='submit' value='Register')
+     
 |
 //- script.
 //-   //-   function validateWoodForm() {

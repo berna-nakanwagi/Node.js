@@ -1,0 +1,31 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Mayondo W.F | Login
+  link(rel='stylesheet' href='../../Public/css/login.css')
+  link(href='https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap' rel='stylesheet')
+section.login-container
+  .login-box
+    .brand
+      h1
+        | Mayondo
+        span Wood
+      p Welcome back to timeless craftsmanship
+    form.login-form(action='#' method='POST')
+      .input-group
+        label(for='email') Email Address
+        input#email(type='email' name='email' placeholder='example@email.com' required='')
+      .input-group
+        label(for='password') Password
+        input#password(type='password' name='password' placeholder='Enter your password' required='')
+      button.btn(type='submit') Login
+      .options
+        a(href='#') Forgot password?
+        p
+          | Don&rsquo;t have an account? 
+          a(href='#') Register
+//
+  <footer>
+  <p>© 2025 Mayondo Wood Furniture | Designed by Nakanwagi Bernardette</p>
+  </footer>
