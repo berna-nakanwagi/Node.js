@@ -2,6 +2,7 @@
 const express = require('express');
 const path = require("path");
 const mongoose = require("mongoose");
+const passport = require('passport');
 const expressSession = require("express-session")({
   secret:"privacy",
   resave:false,
@@ -9,11 +10,13 @@ const expressSession = require("express-session")({
 })
 require("dotenv").config();//without it database willnot work
 
+//import user registration model
+const Registration = require("./models/Registration")
+
 //import routes
 const authRoutes = require('./routes/authRoutes');
 const indexRoutes = require('./routes/indexRoutes');
 const stockRoutes = require('./routes/stockRoutes');
-
 
 //instastiations
 const app = express();
@@ -39,8 +42,20 @@ console.error(`connection error:${error.message}`);
 //middleware
 app.use(express.urlencoded({extended: false}));
 //notifies the system
+app.use(expressSession);
 app.use(express.static(path.join(__dirname,'public')));
 app.use(express.urlencoded({extended:true}));
+
+//express session configs
+app.use(expressSession);
+app.use(passport.initialize());
+app.use(passport.session());
+
+//passport configuration
+passport.use(Registration.createStrategy());
+passport.serializeUser(Registration.serializeUser());
+passport.deserializeUser(Registration.deserializeUser());
+
 
 //use imported routes
 app.use('/', authRoutes);

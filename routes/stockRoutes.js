@@ -1,10 +1,12 @@
 const express = require('express');
 const router = express.Router();
+const connectEnsureLogin = require('connect-ensure-login');
 
 const FurnitureStock = require('../models/furniture')//import the models
 const woodStock = require('../models/wood')
 
-router.get("/registerFurniture", (req, res) => {
+// connectEnsureLogin.ensureLoggedIn(),
+router.get("/registerFurniture",  (req, res) => {
     res.render("furniture", { title: "register furniture stock" });
 });
 
