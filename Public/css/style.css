@@ -1,4 +1,4 @@
-body {
+/* body {
   background-color: #f7f3ef;
   font-family: Arial, sans-serif;
   color: #4e342e;
@@ -25,4 +25,96 @@ nav a:hover {
   width: 80%;
   background-color: #efebe9;
   border-radius: 10px;
+} */
+/* Reset & base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: #f9f5f0; /* warm light background */
+  color: #3b2f2f; /* soft dark brown text */
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Header & Navigation */
+header {
+  background: linear-gradient(135deg, #8b5e3c, #6b4226); /* wood gradient */
+  color: #fff;
+  padding: 15px 0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+nav ul {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  gap: 25px;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+}
+
+nav ul li a:hover {
+  color: #ffd699;
+  transform: scale(1.1);
+}
+
+/* Main content area */
+main {
+  flex: 1;
+  width: 80%;
+  margin: 40px auto;
+  background: #fff;
+  border-radius: 12px;
+  padding: 50px;
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+main h1 {
+  color: #6b4226;
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+}
+
+main p {
+  color: #4d3b2f;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+/* Footer */
+footer {
+  background: #6b4226;
+  color: #f8ede3;
+  text-align: center;
+  padding: 12px 0;
+  font-size: 0.95rem;
+  letter-spacing: 0.3px;
+  box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.15);
+}
+
+/* Add subtle hover glow to links inside content */
+a {
+  color: #8b5e3c;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #b3744e;
+}
+
+
+
