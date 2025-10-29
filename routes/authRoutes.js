@@ -55,6 +55,21 @@ router.get("/logout", (req, res) => {
    } 
 });
 
+router.get("/users", async(req, res) =>{
+    try {
+        const users = await Registration.find().sort({$natural:-1})
+        res.render("list_name", {users})
+    } catch (error) {
+        console.error("error getting user from theDB!")
+        res.status(400).send("unable to get users from DB!")
+        
+    }
+});
+
+
+
+
+
 
 
 module.exports = router;//last line

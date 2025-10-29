@@ -7,36 +7,22 @@ head
     width: 100%;
     }
     td, th {
-    border: 1px solid #dddddd;
+    border: 1px solid #ddb263ff;
     text-align: left;
     padding: 8px;
     }
     tr:nth-child(even) {
-    background-color: #dddddd;
+    background-color: #d39a45ff;
     }
-h2 HTML Table
+h2 Registered wood
 table
   tr
     th Type
     th Quantity
   tr
-    td Mahogany
-    td 120
-  tr
-    td Oak
-    td 85
-  tr
-    td Pine
-    td 150
-  tr
-    td Teak
-    td 60
-  tr
-    td Cypress
-    td 90
-  tr
-    td Rosewood
-    td 45
-  tr
-    td Bamboo
-    td 200
+  if wood.length > 0
+  each item in wood
+    tr
+      td #{item.type}
+      td #{item.quantity}
+  

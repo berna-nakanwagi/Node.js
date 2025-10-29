@@ -44,7 +44,8 @@ app.use(express.urlencoded({extended: false}));
 //notifies the system
 app.use(expressSession);
 app.use(express.static(path.join(__dirname,'public')));
-app.use(express.urlencoded({extended:true}));
+app.use('/public/images/uploads', express.static(__dirname + '/public/images/uploads'));
+// app.use(express.urlencoded({extended:true}));
 
 //express session configs
 app.use(expressSession);

@@ -7,47 +7,28 @@ head
     width: 100%;
     }
     td, th {
-    border: 1px solid #dddddd;
+    border: 1px solid #927663ff;
     text-align: left;
     padding: 8px;
     }
     tr:nth-child(even) {
-    background-color: #dddddd;
+    background-color: #aa8459ff;
     }
-h2 HTML Table
-table
-  tr
-    th Name
-    th Type
-    th Price
-    th Description
-  tr
-    td Wooden Chair
-    td Furniture
-    td shs.60000
-    td Comfortable handcrafted chair made from mahogany wood.
-  tr
-    td Dining Table
-    td Furniture
-    td shs.9000000
-    td 6-seater polished oak table, durable and elegant.
-  tr
-    td Coffee Table
-    td Furniture
-    td shs.800000
-    td Compact design, perfect for living rooms and offices.
-  tr
-    td Wardrobe
-    td Furniture
-    td shs.900000
-    td Spacious double-door wardrobe with fine teak finish.
-  tr
-    td Study Desk
-    td Furniture
-    td shs.500000
-    td Modern study desk with drawers and smooth surface.
-  tr
-    td Bookshelf
-    td Furniture
-    td shs.700000
-    td Sturdy pinewood bookshelf with five spacious layers.
+  h1 Furniture List
+
+  table(border="1" cellspacing="0" cellpadding="8")
+    thead
+      tr
+        th Name
+        th Type
+        th Price
+        th Description
+    tbody
+      if furnitureStock.length > 0
+        each item in furnitureStock
+          tr
+            td #{item.name}
+            td #{item.type}
+            td #{item.price}
+            td #{item.description}
+    

@@ -6,7 +6,7 @@ head
   link(rel='stylesheet' href='/css/style_furniture.css')
 .container
   h2 Register Furniture
-  form#furnitureForm(action="/registerFurniture" method="post" novalidate='')
+  form#furnitureForm(action="/registerFurniture" method="post" enctype="multipart/form-data")
     .form-group
       label(for='name') Furniture Name
       input#name(type='text' name='name' placeholder='e.g. Wooden Table' required='')
@@ -28,5 +28,7 @@ head
       label(for='description') Description
       textarea#description(name='description' rows='3' placeholder='Short description...' required='')
       small.error
+    label Upload furniture image:
+      input#image(type='file' name='furnitureImage' placeholder='image upload' required='')
     button(type='submit') Submit
   //- script(src='js/formValidation.js')

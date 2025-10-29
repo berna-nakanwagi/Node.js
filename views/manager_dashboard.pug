@@ -1,0 +1,65 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title MWF Manager Dashboard
+  link(rel='stylesheet' href='dashboard.css')
+nav.sidebar
+  h2 MWF Manager
+  ul
+    li
+      a(href='#') &#x1F3E0; Dashboard
+    li
+      a(href='#') &#x1F4E6; Manage Stock
+    li
+      a(href='#') &#x1FAB5; Wood Records
+    li
+      a(href='#') &#x1FA91; Furniture Records
+    li
+      a(href='#') &#x1F4C8; Sales Reports
+    li
+      a(href='#') &#x1F465; Staff Management
+    li
+      a(href='#') &#x2699;&#xFE0F; Settings
+    li
+      a(href='#') &#x1F6AA; Logout
+main.main-content
+  header
+    h1 Welcome, Manager
+    p Monitor company performance and stock overview
+  section.cards
+    .card
+      h3 Total Sales
+      p $42,500
+    .card
+      h3 Available Stock
+      p 356 items
+    .card
+      h3 Pending Orders
+      p 18 orders
+    .card
+      h3 Agents Active
+      p 7 agents
+  section.reports
+    h2 Recent Sales Report
+    table
+      thead
+        tr
+          th Date
+          th Product
+          th Agent
+          th Amount
+          th Payment Type
+      tbody
+        tr
+          td 29-Oct-2025
+          td Hardwood Timber
+          td John
+          td $350
+          td Cash
+        tr
+          td 28-Oct-2025
+          td Sofa Set
+          td Mary
+          td $890
+          td Cheque

@@ -17,6 +17,9 @@ price:{
 description:{
     type: String,
     // required:true,
+},
+furnitureImage: {
+type: String
 }
 });
 

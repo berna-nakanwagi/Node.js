@@ -7,48 +7,27 @@ head
     width: 100%;
     }
     td, th {
-    border: 1px solid #dddddd;
+    border: 1px solid #cea990ff;
     text-align: left;
     padding: 8px;
     }
     tr:nth-child(even) {
-    background-color: #dddddd;
+    background-color: #e0b67fff;
     }
-h2 HTML Table
+h2 Our users
 table
   tr
     th Username
     th Email
     th Password
     th Role
-  tr
-    td johndoe
-    td johndoe@example.com
-    td 
-    td admin
-  tr
-    td janesmith
-    td janesmith@example.com
-    td 
-    td user
-  tr
-    td alexwood
-    td alexwood@example.com
-    td 
-    td manager
-  tr
-    td lucycarter
-    td lucycarter@example.com
-    td 
-    td user
-  tr
-    td mikebrown
-    td mikebrown@example.com
-    td 
-    td staff
-  tr
-    td emilywhite
-    td emilywhite@example.com
-    td 
-    td supervisor
 
+     if users.length > 0
+  each user in users
+    tr
+      td #{user.username}
+      td #{user.email}
+      td #{user.password}
+      td #{user.role}
+
+  
