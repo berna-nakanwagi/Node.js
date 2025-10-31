@@ -1,0 +1,20 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  title Register Wood
+  link(rel='stylesheet' href='css/style_wood.css')
+//- nav
+//-   a(href='index.html') Home
+//-   a(href='landing.html') Landing
+//-   a(href='/registerWood') Register Wood
+//-   a(href='/register') User
+.container
+  h1 Register Your Wood
+  form( action="/wood/?id="+item._id method="post" onsubmit='return validateUserForm()')
+    #error.error
+    label(for='type') Wood Type:
+    input#type(type='text' name='type' value=item.type placeholder='e.g., Oak, Mahogany')
+    label(for='quantity') Quantity (kg):
+    input#quantity(type='number' name='quantity' value=item.quantity  min='1' placeholder='e.g., 50')
+    input(type='submit' value='Register')
+     

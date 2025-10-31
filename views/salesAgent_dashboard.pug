@@ -1,55 +1,48 @@
-doctype html
-head
-  meta(charset='UTF-8')
-  meta(name='viewport' content='width=device-width, initial-scale=1.0')
-  title MWF Sales Agent Dashboard
-  link(rel='stylesheet' href='../../Public/css/dashboard.css')
-nav.sidebar
-  h2 MWF Agent
-  ul
-    li
-      a(href='#')  Dashboard
-    li
-      a(href='#')  View Stock
-    li
-      a(href='#')  Record Sale
-    li
-      a(href='#')  My Sales
-    li
-      a(href='#')  Profile
-    li
-      a(href='#')  Logout
-main.main-content
-  header
-    h1 Welcome, Sales Agent
-    p Record sales and check performance
-  section.cards
-    .card
-      h3 Today&apos;s Sales
-      p $1,250
-    .card
-      h3 Products Sold
-      p 23 items
-    .card
-      h3 Commission Earned
-      p $85
-  section.reports
-    h2 Recent Sales
-    table
-      thead
-        tr
-          th Date
-          th Product
-          th Customer
-          th Amount
-      tbody
-        tr
-          td 29-Oct-2025
-          td Office Chair
-          td Mark &amp; Co.
-          td $450
-        tr
-          td 28-Oct-2025
-          td Timber Logs
-          td BuildRight Ltd
-          td $700
+//- extends salesAgent_layout
+doctype html 
+html (lang ="en") 
+  head
+    title MWF Sales Agent Dashboard
+    link(rel='stylesheet' href='/css/dashboard.css')
+  nav.sidebar
+    h2 MWF Agent
+    ul 
+      li: a(href="/")  landing
+      li: a(href="sales") My Sales
+      li: a(href="/registeredWood") wood stock
+      li: a(href="/registeredFurniture") furniture stock
+      li: a(href="/logout") logout     
+  main.main-content
+    header
+      h1 Welcome, Sales Agent
+      p Record sales and check performance
+    section.cards
+      .card
+        h3 Today&apos;s Sales
+        p 600000
+      .card
+        h3 Products Sold
+        p 23 items
+      .card
+        h3 Commission Earned
+        p 8000
+    section.reports
+      h2 Recent Sales
+      table
+        thead
+          tr
+            th Date
+            th Product
+            th Customer
+            th Amount
+        tbody
+          tr
+            td 29-Oct-2025
+            td Office Chair
+            td Mark &amp; Co.
+            td $450
+          tr
+            td 28-Oct-2025
+            td Timber Logs
+            td BuildRight Ltd
+            td $700

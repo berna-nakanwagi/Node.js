@@ -8,6 +8,7 @@ const expressSession = require("express-session")({
   resave:false,
   saveUninitialized:false  
 })
+const flash = require("connect-flash");
 require("dotenv").config();//without it database willnot work
 
 //import user registration model
@@ -47,10 +48,31 @@ app.use(express.static(path.join(__dirname,'public')));
 app.use('/public/images/uploads', express.static(__dirname + '/public/images/uploads'));
 // app.use(express.urlencoded({extended:true}));
 
+//global variables to be accessed by all views
+app.use((req, res, next )=> {
+  res.locals.currentUser= req.session.user;
+  next();
+})
+app.use(flash());
+app.use((req, res, next) => {
+  res.locals.success_msg = req.flash('success_msg');
+  res.locals.error_msg = req.flash('error_msg');
+  next();
+});
+//session middleware
+// app.use(
+//   session({
+//     secret: "security", 
+//     resave: false,
+//     saveUninitialized: false
+//   })
+// );
+
 //express session configs
 app.use(expressSession);
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(flash()); //flash messages
 
 //passport configuration
 passport.use(Registration.createStrategy());

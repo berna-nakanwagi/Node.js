@@ -1,0 +1,21 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    title My Website
+    link(rel="stylesheet", href="/css/style.css") 
+  if currentUser && (currentUser.role ==='manager')
+    nav
+      ul
+        li: a(href="/") landing 
+        li: a(href="/registeredFurniture") Furniture Records
+        li: a(href="/user") Manage Stock
+        li: a(href="/registeredWood") Wood Records
+        li: a(href="#") Sales Reports
+        li: a(href="/registerWood") Add woodstock
+        li: a(href="/registerFurniture") Add furniture
+        li: a(href="/logout") Logout   
+block content
+
+   

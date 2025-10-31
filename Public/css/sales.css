@@ -1,0 +1,134 @@
+body {
+  font-family: "Poppins", Arial, sans-serif;
+  background-color: #e9edf3; /* soft bluish background */
+  color: #222;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 800px;
+  margin: 40px auto;
+  background: #ffffff;
+  padding: 30px 40px;
+  border-radius: 10px;
+  box-shadow: 0 4px 14px rgba(0, 31, 63, 0.2);
+  border-top: 6px solid #001f3f; /* navy accent line */
+}
+
+h1 {
+  text-align: center;
+  color: #001f3f;
+  margin-bottom: 8px;
+}
+
+.lead {
+  text-align: center;
+  color: #444;
+  margin-bottom: 25px;
+  font-size: 14px;
+}
+
+/* ----- Form Styling ----- */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.form-row {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-row.inline {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+label {
+  font-weight: 600;
+  margin-bottom: 5px;
+  color: #001f3f;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="date"],
+select {
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input:focus,
+select:focus {
+  border-color: #003366;
+  box-shadow: 0 0 4px rgba(0, 51, 102, 0.4);
+  outline: none;
+}
+
+/* ----- Checkbox ----- */
+input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  margin-right: 8px;
+  transform: translateY(3px);
+}
+
+/* ----- Button ----- */
+button {
+  background-color: #001f3f; /* navy blue */
+  color: #fff;
+  font-size: 15px;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+  background-color: #003366; /* darker navy on hover */
+  transform: translateY(-1px);
+}
+
+/* ----- Receipt Section ----- */
+.receipt {
+  margin-top: 30px;
+  border-top: 2px solid #ccc;
+  padding-top: 20px;
+  background-color: #f8faff;
+  border-radius: 6px;
+}
+
+.receipt h2 {
+  color: #001f3f;
+  margin-bottom: 10px;
+  border-bottom: 2px solid #001f3f;
+  display: inline-block;
+  padding-bottom: 4px;
+}
+
+.receipt p {
+  color: #444;
+  font-size: 14px;
+}
+
+/* ----- Responsive Layout ----- */
+@media (max-width: 600px) {
+  .container {
+    padding: 20px;
+  }
+
+  .form-row.inline {
+    flex-direction: column;
+  }
+
+  h1 {
+    font-size: 20px;
+  }
+}

@@ -1,28 +1,25 @@
 doctype html
-head
-  style.
-    table {
-    font-family: arial, sans-serif;
-    border-collapse: collapse;
-    width: 100%;
-    }
-    td, th {
-    border: 1px solid #ddb263ff;
-    text-align: left;
-    padding: 8px;
-    }
-    tr:nth-child(even) {
-    background-color: #d39a45ff;
-    }
-h2 Registered wood
-table
-  tr
-    th Type
-    th Quantity
-  tr
-  if wood.length > 0
-  each item in wood
-    tr
-      td #{item.type}
-      td #{item.quantity}
-  
+html
+  head
+    title Registered Wood
+    link(rel="stylesheet",  href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous")
+    link(rel="stylesheet" href="/css/table.css")
+  body
+    h2 Registered wood
+    table
+      tr
+        th Type
+        th Quantity
+        th Update 
+        th Delete
+      if wood.length > 0
+        each item in wood
+          tr
+            td #{item.type}
+            td #{item.quantity}
+            td 
+                a.btn.btn-primary.btn-block(href=`/wood/${item._id}`) Update
+            td 
+              form(action="/deletewood" method="post")
+                input(type="hidden" name="id" value=item._id)
+                button.btn.btn-danger.btn-block(type="submit") Delete 

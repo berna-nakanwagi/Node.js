@@ -3,6 +3,7 @@ head
   meta(charset='UTF-8')
   title User Profile
   link(rel='stylesheet' href='../css/style_user.css')
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 nav
   //- a(href='index.html') Home
   //- a(href='landing.html') Landing
@@ -11,6 +12,9 @@ nav
   .container
   h1 User Registration
   //- img(src="images/collections.jfif", alt="wood")
+  if success_msg && success_msg.length > 0
+    .alert.alert-success
+      = success_msg
   form( action="/register" method="post" )
     #user-error.error
     label(for='username') Username:

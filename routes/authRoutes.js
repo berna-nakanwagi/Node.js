@@ -1,7 +1,11 @@
 const express = require('express');
 const router =   express.Router();
 const passport = require('passport');
+const {ensureAuthenticated, ensureManager, ensureSalesAgent} = require('../customMiddleware/auth');
+const flash = require('connect-flash');
+
 const Registration = require('../models/Registration')
+
 router.get("/register", (req, res) => {
     res.render("user");
 })
@@ -20,6 +24,7 @@ router.post("/register", async(req, res ) => {
             throw error;
         }
     })
+    req.flash("success_msg", "User successfully registered")
     res.redirect("/")  
     }
   } catch (error) {
@@ -36,9 +41,9 @@ router.post("/login", passport.authenticate("local",{failureRedirect: "/login"})
 req.session.user = req.user
 // console.log(req.user)
 if(req.user.role ==="manager"){
-    res.redirect("/registerWood")
+    res.redirect("/managerDashboard")
 }else if(req.user.role==="sales-Agent"){
-    res.redirect("/registerFurniture")
+    res.redirect("/salesAgentdashboard")
 }else{
     res.render("nonuser")
 }
@@ -66,9 +71,13 @@ router.get("/users", async(req, res) =>{
     }
 });
 
+ router.get("/managerDashboard", ensureAuthenticated, ensureManager, (req, res) => {
+    res.render("manager_dashboard")
+ });
 
-
-
+ router.get("/salesAgentdashboard",ensureAuthenticated, ensureSalesAgent,(req, res) => {
+    res.render("salesAgent_dashboard" )
+ });
 
 
 

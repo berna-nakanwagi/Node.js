@@ -1,0 +1,86 @@
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: #f8f9fb; /* subtle off-white */
+  color: #2d2d2d;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  text-align: center;
+  margin: 30px 0 25px;
+  color: #1a2b4c; /* deep navy blue */
+  font-size: 2rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+/* Main Table */
+table {
+  width: 90%;
+  max-width: 1000px;
+  margin: 0 auto 40px;
+  border-collapse: collapse;
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.2s ease-in-out;
+}
+
+table:hover {
+  transform: scale(1.01);
+}
+
+/* Header Row */
+th {
+  background-color: #2c3e50; /* navy blue, subtle */
+  color: #ffffff;
+  text-align: left;
+  padding: 14px 18px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.7px;
+  font-size: 0.95rem;
+}
+
+/* Table Cells */
+td {
+  padding: 14px 18px;
+  border-bottom: 1px solid #ebebeb;
+  color: #333333;
+  font-size: 0.96rem;
+  background-color: transparent; /* remove color from table body */
+}
+
+/* Remove alternate row coloring */
+tr:nth-child(even) td {
+  background-color: transparent;
+}
+
+/* Hover effect only for rows */
+tr:hover td {
+  background-color: #f0f4f8; /* very light subtle hover */
+  transition: background-color 0.3s ease;
+}
+
+/* Image cell */
+td img {
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+/* Responsive */
+@media (max-width: 700px) {
+  table {
+    width: 100%;
+    display: block;
+    overflow-x: auto;
+    border-radius: 0;
+  }
+
+  th, td {
+    white-space: nowrap;
+  }
+}

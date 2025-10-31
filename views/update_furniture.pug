@@ -1,0 +1,31 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Update Furniture
+  link(rel='stylesheet' href='/css/style_furniture.css')
+.container
+  h2 Update Furniture
+  form#furnitureForm(action="/furniture?id="+item._id method="post")
+    .form-group
+      label(for='name') Furniture Name
+      input#name(type='text' name='name' value=item.name placeholder='e.g. Wooden Table' required='')
+      small.error
+    .form-group
+      label(for='type') Category
+      select#type(name='type' required='')
+        option(value='chair' selected=item.type==="chair") Chair 
+        option(value='table' selected=item.type==="table") Table
+        option(value='bed' selected=item.type==="bed") Bed
+        option(value='sofa' selected=item.type==="sofa") Sofa
+      small.error
+    .form-group
+      label(for='price') Price (UGX)
+      input#price(type='number' name='price' value=item.price placeholder='e.g. 250000' min='1' required='')
+      small.error
+    .form-group
+      label(for='description') Description
+      input#description(name='description' value=item.description rows='3' placeholder='Short description...' required='')
+      small.error
+    button(type='submit') Submit
+  //- script(src='js/formValidation.js')
