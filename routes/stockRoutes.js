@@ -4,8 +4,11 @@ const router = express.Router();
 const multer = require('multer');
 const {ensureAuthenticated, ensureManager, ensureSalesAgent} = require('../customMiddleware/auth');
 
-const FurnitureStock = require('../models/furniture')//import the models
-const woodStock = require('../models/wood')
+const FurnitureStock = require('../models/furniture');//import the models
+const woodStock = require('../models/wood');
+const WoodSales = require('../models/wood_sale');
+const FurnitureSales = require('../models/furniture_sales');
+
 
 // image upload  configs
 var storage = multer.diskStorage({
@@ -110,7 +113,7 @@ router.get("/registeredWood", async (req, res) => {
 //get wood stock to update
 router.get("/wood/:id", async (req,res)=>{
     try {
-        const furniture = await FurnitureStock.findOne({_id:req.params.id});
+        const wood = await woodStock.findOne({_id:req.params.id});
         res.render("update_wood",{item:wood})
     } catch (error) {
       res.status(400).send("Unable to find wood from the database")  
@@ -120,7 +123,7 @@ router.get("/wood/:id", async (req,res)=>{
 
 router.post("/wood", async (req,res)=>{
     try {
-        await FurnitureStock.findByIdAndUpdate({_id:req.query.id},req.body);
+        await woodStock.findByIdAndUpdate({_id:req.query.id},req.body);
         res.redirect("/registeredWood")
     } catch (error) {
       res.status(400).send("Unable to update wood in the database")  
@@ -131,7 +134,7 @@ router.post("/wood", async (req,res)=>{
 //delete wood
 router.post("/deletewood", async (req,res)=>{
     try {
-        await FurnitureStock.deleteOne({_id:req.body.id});
+        await woodStock.deleteOne({_id:req.body.id});
         res.redirect("/registeredWood")
     } catch (error) {
       res.status(400).send("Unable to delete wood in the database")  
@@ -139,8 +142,13 @@ router.post("/deletewood", async (req,res)=>{
     }
 });
 
-//sales routes
- router.get("/sales",  (req, res) => {
-    res.render("Make_sale")
+// wood sales routes
+ router.get("/woodsales",  (req, res) => {
+    res.render("Makewood_sale")
  });
+ // furniture sales routes
+ router.get("/furnituresales",  (req, res) => {
+    res.render("Makefurniture_sale")
+ });
+ 
 module.exports = router;

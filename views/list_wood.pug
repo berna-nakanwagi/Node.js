@@ -8,15 +8,23 @@ html
     h2 Registered wood
     table
       tr
-        th Type
+        th CustomerName
+        th ProductType
         th Quantity
+        th Price 
+        th Date
+        th PaymentType
         th Update 
         th Delete
       if wood.length > 0
         each item in wood
           tr
-            td #{item.type}
+            td #{item.customerName}
+            td #{item.productType}
             td #{item.quantity}
+            td #{item.unitPrice}
+            td #{item.date}
+            td #{item.paymentType}
             td 
                 a.btn.btn-primary.btn-block(href=`/wood/${item._id}`) Update
             td 

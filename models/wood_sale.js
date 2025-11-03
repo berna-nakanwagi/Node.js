@@ -1,0 +1,37 @@
+const mongoose = require('mongoose');
+
+const woodSalesSchema = new mongoose.Schema({
+    customerName: {
+        type: String,
+    },
+
+    productType: {
+        type: String,
+        // trim: true,
+        // unique: true,
+    },
+    productName: {
+        type: String,
+    },
+    quantity: {
+        type: String,
+        // required:true,
+    },
+    unitPrice: {
+        type: String
+    },
+    date: {
+        type: String
+    },
+     paymentType: {
+        type: String
+    },
+     salesAgent: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref:"Registration"
+    },
+     tranport: {
+        type: String
+    },
+});
+module.exports = mongoose.model('WoodSales', woodSalesSchema);

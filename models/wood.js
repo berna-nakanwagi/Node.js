@@ -1,16 +1,25 @@
 const mongoose = require('mongoose');
 
 const woodSchema = new mongoose.Schema({
-  type: {
+  customerName: {
     type: String,
      },
-     
+  productType: {
+    type: Number,
+  },
   quantity: {
     type: Number,
-    // trim: true,
-    // unique: true,
-    
   },
+  unitPrice: {
+    type: Number,
+  },
+  date: {
+    type: Number,
+  },
+  paymentType: {
+    type: Number,
+  },
+
 // password:{
 //     type:String,
 // },

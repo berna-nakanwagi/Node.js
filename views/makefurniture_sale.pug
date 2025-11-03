@@ -3,15 +3,15 @@ html(lang="en")
   head
     meta(charset="utf-8")
     meta(name="viewport" content="width=device-width, initial-scale=1.0")
-    title MWF — Record Sale
+    title MWF — Record Sale For Furniture
     link(rel="stylesheet", href="/css/sales.css")
 
   body
     .container
-      h1 Mayondo Wood Furniture — Record Sale
+      h1 Mayondo Wood Furniture — Record Sale For Furniture
       p.lead Record a new customer sale
 
-      form(action="/" method="")
+      form(action="/furnituresales" method="")
         .form-row
           label(for="customerName") Customer name
           input#customerName(type="text" name="customerName" required placeholder="Company or contact name")
@@ -20,13 +20,12 @@ html(lang="en")
           label(for="productType") Product type
           select#productType(name="productType" required)
             option(value="") -- select --
-            option(value="Timber") Timber
-            option(value="Pole") Pole
-            option(value="Furniture") Furniture
-            option(value="Other") Other
-
+            option(value="chairs") chairs
+            option(value=" bed") bed
+            option(value="shelves") shelves 
+            option(value="desk")  desk
         .form-row
-          label(for="productName") Product name / model
+          label(for="productName") Product name 
           input#productName(type="text" name="productName" required placeholder="e.g. Teak plank, Office Desk")
 
         .form-row.inline

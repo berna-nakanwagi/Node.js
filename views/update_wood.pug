@@ -2,7 +2,7 @@ doctype html
 head
   meta(charset='UTF-8')
   title Register Wood
-  link(rel='stylesheet' href='css/style_wood.css')
+  link(rel='stylesheet' href='/css/style_wood.css')
 //- nav
 //-   a(href='index.html') Home
 //-   a(href='landing.html') Landing
@@ -10,11 +10,33 @@ head
 //-   a(href='/register') User
 .container
   h1 Register Your Wood
-  form( action="/wood/?id="+item._id method="post" onsubmit='return validateUserForm()')
-    #error.error
-    label(for='type') Wood Type:
-    input#type(type='text' name='type' value=item.type placeholder='e.g., Oak, Mahogany')
-    label(for='quantity') Quantity (kg):
-    input#quantity(type='number' name='quantity' value=item.quantity  min='1' placeholder='e.g., 50')
-    input(type='submit' value='Register')
-     
+  form#furnitureForm(action="/wood?id="+item._id method="post")
+    .form-row
+          label(for="customerName") Customer name
+          input#customerName(type="text" name="customerName" required placeholder="Company or contact name")
+    .form-row
+      label(for="productType") Product type
+      select#productType(name="productType" required)
+        option(value="") -- select --
+        option(value="oak") Oak
+        option(value="pine") Pine
+        option(value="timber") Timber
+        option(value="mahogany") Mahogany
+    .form-row.inline
+      label(for="quantity") Quantity
+      input#quantity(type="number" name="quantity" min="1" value="1" required)
+
+      label(for="unitPrice") Unit price (UGX)
+      input#unitPrice(type="number" name="unitPrice" min="0" step="0.01" value="0" required)
+
+    .form-row
+      label(for="date") Date
+      input#date(type="date" name="date" required)
+
+    .form-row
+      label(for="paymentType") Payment type
+      select#paymentType(name="paymentType" required)
+        option(value="cash") Cash
+        option(value="cheque") Cheque
+        option(value="bank") Bank overdraft
+      button(type='submit') Submit
