@@ -5,33 +5,34 @@ const woodSalesSchema = new mongoose.Schema({
         type: String,
     },
 
-    productType: {
+    productName: {
         type: String,
         // trim: true,
         // unique: true,
-    },
-    productName: {
-        type: String,
     },
     quantity: {
         type: String,
         // required:true,
     },
     unitPrice: {
-        type: String
+        type: String,
     },
     date: {
-        type: String
+        type: Number,
+        
     },
-     paymentType: {
-        type: String
+    paymentType: {
+        type: Number,
     },
-     salesAgent: {
+    salesAgent: {
         type: mongoose.Schema.Types.ObjectId,
-        ref:"Registration"
+        ref: "Registration"
     },
-     tranport: {
-        type: String
+    transport: {
+        type: Boolean,
+    },
+    totalPrice: {
+        type: Number,
     },
 });
 module.exports = mongoose.model('WoodSales', woodSalesSchema);

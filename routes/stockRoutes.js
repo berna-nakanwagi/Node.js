@@ -49,12 +49,11 @@ router.post("/registerWood", async (req, res) => {
         const wood = new woodStock(req.body)
         console.log(wood)
         await wood.save()
-        res.redirect("/registerFurniture")//you only redirect to a route path
+        res.redirect("/registeredWood")//you only redirect to a route path
     } catch (error) {
         console.error()
         res.redirect("/registerWood")
     }
-
 });
 
 router.get("/registeredFurniture", async (req, res) => {
@@ -141,14 +140,4 @@ router.post("/deletewood", async (req,res)=>{
       console.log(error)
     }
 });
-
-// wood sales routes
- router.get("/woodsales",  (req, res) => {
-    res.render("Makewood_sale")
- });
- // furniture sales routes
- router.get("/furnituresales",  (req, res) => {
-    res.render("Makefurniture_sale")
- });
- 
 module.exports = router;

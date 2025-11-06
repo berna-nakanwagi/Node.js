@@ -18,6 +18,7 @@ const Registration = require("./models/Registration")
 const authRoutes = require('./routes/authRoutes');
 const indexRoutes = require('./routes/indexRoutes');
 const stockRoutes = require('./routes/stockRoutes');
+const salesRoutes = require('./routes/salesRoutes');
 
 //instastiations
 const app = express();
@@ -84,6 +85,7 @@ passport.deserializeUser(Registration.deserializeUser());
 app.use('/', authRoutes);
 app.use('/', indexRoutes);
 app.use('/', stockRoutes);
+app.use('/', salesRoutes);
 
 
 

@@ -1,56 +1,60 @@
 doctype html
-head
-  meta(charset='UTF-8')
-  title Register Wood
-  link(rel='stylesheet' href='css/style_wood.css')
-//- nav
-//-   a(href='index.html') Home
-//-   a(href='landing.html') Landing
-//-   a(href='/registerWood') Register Wood
-//-   a(href='/register') User
-.container
-  h1 Register Your Wood
-  form( action="/registerWood" method="post" onsubmit='return validateUserForm()')
-    .form-row
+html
+  head
+    meta(charset='UTF-8')
+    title Register Wood
+    link(rel='stylesheet' href='/css/style_wood.css')
+  body
+    .container
+      h1 Register Your Wood
+      form(action="/registerWood" method="post" onsubmit='return validateUserForm()')
+        .form-row
           label(for="customerName") Customer name
           input#customerName(type="text" name="customerName" required placeholder="Company or contact name")
-    .form-row
-      label(for="productType") Product type
-      select#productType(name="productType" required)
-        option(value="") -- select --
-        option(value="oak") Oak
-        option(value="pine") Pine
-        option(value="timber") Timber
-        option(value="mahogany") Mahogany
-    .form-row.inline
-      label(for="quantity") Quantity
-      input#quantity(type="number" name="quantity" min="1" value="1" required)
 
-      label(for="unitPrice") Unit price (UGX)
-      input#unitPrice(type="number" name="unitPrice" min="0" step="0.01" value="0" required)
+        .form-row
+          label(for="productName") Product name
+          select#productName(name="productName" required)
+            option(value="") -- select --
+            option(value="hardwood") Hardwood
+            option(value="softwood") Softwood
+            option(value="timber") Timber
+            option(value="pole") Pole
 
-    .form-row
-      label(for="date") Date
-      input#date(type="date" name="date" required)
+        .form-row.inline
+          label(for="quantity") Quantity (pieces)
+          input#quantity(type="number" name="quantity" min="1" value="1" required)
 
-    .form-row
-      label(for="paymentType") Payment type
-      select#paymentType(name="paymentType" required)
-        option(value="cash") Cash
-        option(value="cheque") Cheque
-        option(value="bank") Bank overdraft
-      button(type='submit') Submit
-|
-//- script.
-//-   //-   function validateWoodForm() {
-//-   //-     const type = document.getElementById('type').value.trim();
-//-   //-     const quantity = document.getElementById('quantity').value.trim();
-//-   //-     const error = document.getElementById('error');
-//-   //-     error.innerHTML = '';
-//-   //-     if (!type || quantity <= 0) {
-//-   //-       error.innerHTML = "Please enter a valid wood type and quantity.";
-//-   //-       return false;
-//-   //-     }
-//-   //-     return true;
-//-   //-   }
-//-   //-
+          label(for="unitPrice") Unit price (UGX)
+          input#unitPrice(type="number" name="unitPrice" min="0" step="0.01" value="0" required)
+
+        .form-row
+          label(for="quality") Quality
+          select#quality(name="quality" required)
+            option(value="") -- select --
+            option(value="high") High
+            option(value="medium") Medium
+            option(value="low") Low
+            option(value="big") Big
+
+        .form-row
+          label(for="date") Date
+          input#date(type="date" name="date" required)
+
+        .form-row
+          label(for="measurements") Measurements
+          input#measurements(type="text" name="measurements" required placeholder="Enter size or length")
+
+        .form-row
+          label(for="color") Color
+          input#color(type="color" name="color" required)
+
+        .form-row
+          label(for="paymentType") Payment type
+          select#paymentType(name="paymentType" required)
+            option(value="") -- select --
+            option(value="cash") Cash
+            option(value="cheque") Cheque
+            option(value="bank") Bank overdraft
+
+        button(type='submit') Submit

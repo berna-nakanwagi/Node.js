@@ -5,6 +5,10 @@ const {ensureAuthenticated, ensureManager, ensureSalesAgent} = require('../custo
 const flash = require('connect-flash');
 
 const Registration = require('../models/Registration')
+const FurnitureStock = require('../models/furniture');//import the models
+const woodStock = require('../models/wood');
+const WoodSales = require('../models/wood_sale');
+const FurnitureSales = require('../models/furniture_sales');
 
 router.get("/register", (req, res) => {
     res.render("user");
@@ -71,8 +75,23 @@ router.get("/users", async(req, res) =>{
     }
 });
 
- router.get("/managerDashboard", ensureAuthenticated, ensureManager, (req, res) => {
-    res.render("manager_dashboard")
+ router.get("/managerDashboard",  ensureAuthenticated, ensureManager, async (req, res) => {
+    try {
+        //expenses for buying wood stock
+       let totalHardWood = await woodStock.aggregate([
+        {$match:{woodType:'hardwood'}},
+        {$group:{id:null,
+            totalQuantity:{$sum:'$quantity'},
+            totalCost:{$sum:{$multiply:['$unitPrice','$quantity']}}
+        }}
+       ]) 
+       totalHardWood = totalHardWood[0]??{totalQuantity:0,totalCost:0}
+       res.render("manager_dashboard",{
+             totalHardWood
+       });
+    } catch (error) {
+        
+    }
  });
 
  router.get("/salesAgentdashboard",ensureAuthenticated, ensureSalesAgent,(req, res) => {

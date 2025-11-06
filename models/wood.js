@@ -3,30 +3,34 @@ const mongoose = require('mongoose');
 const woodSchema = new mongoose.Schema({
   customerName: {
     type: String,
-     },
+  },
   productType: {
-    type: Number,
+    type: String,
   },
   quantity: {
     type: Number,
   },
   unitPrice: {
-    type: Number,
+    type: String,
   },
   date: {
     type: Number,
   },
   paymentType: {
+    type: String,
+  },
+  quality: {
+    type: String,
+  },
+  measurements: {
     type: Number,
   },
-
-// password:{
-//     type:String,
-// },
-// role:{
-//     type: String,
-//     required:true,
-// }
+   supplierName: {
+    type: String,
+  },
+  color: {
+    type: String,
+  },
 });
 
 module.exports = mongoose.model('woodStock', woodSchema);
