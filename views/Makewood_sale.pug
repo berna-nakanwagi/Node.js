@@ -10,10 +10,6 @@ html
       h1 Register Your Wood Sale
       form(action="/woodsales", method="post",)
         .form-row
-          label(for="customerName") Customer Name
-          input#customerName(type="text", name="customerName", required, placeholder="Company or contact name")
-
-        .form-row
           label(for="productName") Product name
           select#productName(name="productName", required)
             option(value="") -- select --
@@ -23,8 +19,8 @@ html
             option(value="pole") Pole
             -var groupedWoods ={}
             each wood in woodsales 
-             - if(!groupedWoods[wood.productType]) groupedWoods[wood.woodName]=0
-             - groupedWoods[wood.woodName] += wood.quantity 
+             - if(!groupedWoods[wood.productName]) groupedWoods[wood.productName] = 0
+             - groupedWoods[wood.productName] += wood.quantity 
             each qty, name in groupedWoods 
               if qty > 0
                 option(value=name)= name + "(Available:"+ qty + "units)"
@@ -64,6 +60,10 @@ html
             option(value="cash") Cash
             option(value="cheque") Cheque
             option(value="bank") Bank Overdraft
+        .form-row
+          label(for="salesAgent") SalesAgent
+          input#salesAgent(type="text", name="salesAgent", required,)
+
         .form-row
           input#transport(type="checkbox" name="transport")
           label(for="transport") Provide transport (adds 5% of total)

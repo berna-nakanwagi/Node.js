@@ -1,38 +1,52 @@
 const mongoose = require('mongoose');
 
 const woodSalesSchema = new mongoose.Schema({
-    customerName: {
-        type: String,
-    },
-
     productName: {
         type: String,
-        // trim: true,
-        // unique: true,
+        required: true,
+        trim: true,
     },
     quantity: {
-        type: String,
-        // required:true,
+        type: Number,
+        required: true,
     },
     unitPrice: {
-        type: String,
+        type: Number,
+        required: true,
     },
     date: {
-        type: Number,
-        
+        type: Date,
+        required: true,
     },
     paymentType: {
-        type: Number,
+        type: String,
+        required: true,
     },
     salesAgent: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: "Registration"
+        ref: "Registration",
+        required: true,
     },
     transport: {
         type: Boolean,
+        default: false,
+    },
+    measurements: {
+        type: Number,
+        required: true,
+    },
+     color: {
+        type: String,
+        required: true,
+    },
+     quality: {
+        type: String,
+        required: true,
     },
     totalPrice: {
         type: Number,
+        required: true,
     },
 });
+
 module.exports = mongoose.model('WoodSales', woodSalesSchema);

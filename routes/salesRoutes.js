@@ -18,9 +18,9 @@ const FurnitureSales = require('../models/furniture_sales');
  });
   router.post("/woodsales", async(req, res) => {
    try {
-      const {customerName,productName,quantity,unitPrice,quality,date,paymentType,transport}= req.body;
+      const {customerName,productName,quantity,unitPrice,quality,date,paymentType,transport,measurements,color}= req.body;
       //find all  woodstock with wood name
-      const stocks =await woodStock.find({woodName:productName});
+      const stocks =await woodStock.find({productName:productName});
       if(!stocks|| stocks.length === 0)
        return res.status(400).send("stock not found");
       // calculate total available quantity across all stock entries
@@ -28,7 +28,7 @@ const FurnitureSales = require('../models/furniture_sales');
       if (totalAvailable < Number(quantity))
          return res.status(400).send("Insufficient stock")
       //calculate total price
-      let total = unitPrice + Number(quantity)
+      let total = unitPrice * Number(quantity)
       if(transport)
           total *= 1.05;
       const sale =new woodsales({
@@ -39,6 +39,8 @@ const FurnitureSales = require('../models/furniture_sales');
          quality,
          date,   
          paymentType,
+         measurements,
+         color,
          transport:!!transport,
          salesAgent:req.user._id,
          totalPrice:total

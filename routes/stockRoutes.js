@@ -22,11 +22,11 @@ var storage = multer.diskStorage({
 var upload = multer({ storage: storage })
 
 
-router.get("/registerFurniture", ensureAuthenticated, ensureManager, (req, res) => {
+router.get("/registerFurniture",  (req, res) => {
     res.render("furniture", { title: "register furniture stock" });
 });
 
-router.post("/registerFurniture",  ensureAuthenticated, ensureManager ,upload.single('furnitureImage'), async (req, res) => {
+router.post("/registerFurniture", ensureAuthenticated, ensureManager,  upload.single('furnitureImage'), async (req, res) => {
     try {
         const furniture = new FurnitureStock(req.body)
         furniture.furnitureImage = req.file.path//file path to go to the database
@@ -40,7 +40,7 @@ router.post("/registerFurniture",  ensureAuthenticated, ensureManager ,upload.si
 
 });
 
-router.get("/registerWood", (req, res) => {
+router.get("/registerWood",  (req, res) => {
     res.render("wood", { title: "register wood stock" });
 });
 
@@ -49,7 +49,7 @@ router.post("/registerWood", async (req, res) => {
         const wood = new woodStock(req.body)
         console.log(wood)
         await wood.save()
-        res.redirect("/registeredWood")//you only redirect to a route path
+        res.redirect("/registerFurniture")//you only redirect to a route path
     } catch (error) {
         console.error()
         res.redirect("/registerWood")
@@ -98,7 +98,7 @@ router.post("/deletefurniture", async (req,res)=>{
 });
 
 
-router.get("/registeredWood", async (req, res) => {
+router.get("/registeredWood", ensureAuthenticated, ensureManager, async (req, res) => {
     try {
         const wood = await woodStock.find();
         res.render("list_wood", { wood })

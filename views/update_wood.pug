@@ -12,16 +12,13 @@ head
   h1 Register Your Wood
   form#furnitureForm(action="/wood?id="+item._id method="post")
     .form-row
-          label(for="customerName") Customer name
-          input#customerName(type="text" name="customerName" required placeholder="Company or contact name")
-    .form-row
       label(for="productName") Product name
       select#productName(name="productName" required)
         option(value="") -- select --
-        option(value="oak") Oak
-        option(value="pine") Pine
+        option(value="hardwood") Hardwood
+        option(value="softwood") Softwood
         option(value="timber") Timber
-        option(value="mahogany") Mahogany
+        option(value="poles") Poles 
     .form-row.inline
       label(for="quantity") Quantity
       input#quantity(type="number" name="quantity" min="1" value="1" required)
